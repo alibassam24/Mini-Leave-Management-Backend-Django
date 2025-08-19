@@ -41,7 +41,7 @@ class UserSerializer(serializers.ModelSerializer):
         user.is_staff = role == "hr"
         user.save()
         return user
-
+    
 
 # -----------------------
 # Employee

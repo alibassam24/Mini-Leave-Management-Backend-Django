@@ -17,6 +17,6 @@ urlpatterns = [
     path("leave/apply/", views.apply_for_leave, name="apply_leave"),
     path("leave/applications/", views.view_all_applications, name="view_all_applications"),
     path("leave/approve/<int:application_id>/", views.approve_leave, name="approve_leave"),
-    path("leave/reject/", views.reject_leave, name="reject_leave"),
+    path("leave/reject/<int:application_id>/", views.reject_leave, name="reject_leave"),
     path("leave/balance/<int:employee_id>/", views.get_leave_balance, name="leave_balance"),
 ]
