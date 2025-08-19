@@ -63,7 +63,7 @@ class Application(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     start_date = models.DateField()
     end_date = models.DateField()
-    reason_description = models.TextField()
+    reason_description = models.TextField(null=True,blank=True)
     rejection_reason = models.TextField(blank=True, null=True)
 
     def __str__(self):
