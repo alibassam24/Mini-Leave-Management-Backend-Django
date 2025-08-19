@@ -16,20 +16,35 @@ class User(AbstractUser):
     
 class EmployeeProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
+    phone_number=models.CharField(max_length=12)
     department=models.CharField(max_length=30)
     joining_date=models.DateField()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     leave_balance=models.PositiveIntegerField(default=5)
+
+    def __str__(self):
+        return self.user.username
  
 class HrProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
- 
-class Leave(models.Model):
+    
+    def __str__(self):
+        return self.user.username
 
-    pass
+# class Leave(models.Model):
+#     pass
 
 class Application(models.Model):
-    pass
+    employee=models.ForeignKey(EmployeeProfile,on_delete=models.CASCADE)
+    status=models.CharField(max_length=18) #pending, accepted rejected
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+    start_date=models.DateField()
+    end_date=models.DateField()
+    reason_description=models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.employee.user.username
