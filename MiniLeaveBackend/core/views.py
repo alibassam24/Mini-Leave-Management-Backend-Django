@@ -29,17 +29,18 @@ def add_hr(request):
 
 @api_view(["POST"])    
 def login_user(request):
-   try:
-    email=request.data.get("email")
-    password=request.data.get("password")
-   except:
-       return Response({"status":"failed","message":"email/password not found"},status=status.HTTP_400_BAD_REQUEST)
-   user=authenticate(username=email,password=password)
+   
+   email=request.data.get("email")
+   password=request.data.get("password")
+   if not email or not password:
+       return Response({"status":"failed","message":"email/password not found"},status=status.HTTP_200_OK)
+
+   user=authenticate(request,username=email,password=password)
    if user:
-        token, +=Token.objects.get_or_create(user=user)
-        return Response({"status":"success","message":"login successful","token":token},status=status.HTTP_200_OK,)
+        token, _=Token.objects.get_or_create(user=user)
+        return Response({"status":"success","message":"login successful","role":user.role,"token":token.key},status=status.HTTP_200_OK,)
    else:
-       return Response({"status":"failed","message":"login failed"},status=status.HTTP_400_BAD_REQUEST)
+       return Response({"status":"failed","message":"login failed"},status=status.HTTP_401_UNAUTHORIZED)
 
 @api_view(["POST"])
 def logout(request):
