@@ -86,6 +86,21 @@ source env/bin/activate  # For Windows: env\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 
+#Write secret key
+⚙️ Environment Setup
+
+#Generate your own Django SECRET_KEY:
+
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+
+#In the project root, create a .env file:
+#Example .env:
+
+SECRET_KEY="(secret key generated)"
+
+
+#Copy this key into your .env.
+
 # Run migrations
 python manage.py makemigrations
 python manage.py migrate
