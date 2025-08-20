@@ -40,7 +40,6 @@ static_root/ # Collected static files from collectstatic
 
 # IDE specific
 .idea/ # PyCharm
-.vscode/ # VS Code
 *.sublime-project
 *.sublime-workspace
 
@@ -61,3 +60,7 @@ ehthumbs.db # Windows
 # Environment variables
 .env
 *.env
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
