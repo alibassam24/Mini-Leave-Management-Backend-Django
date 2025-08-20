@@ -1,6 +1,6 @@
 # 📝 Mini Leave Management System (Django REST API)
 
-A simple Leave Management System built with **Django REST Framework** and **JWT Authentication**.  
+A simple Leave Management System built with **Django REST Framework**
 It allows HR to manage employees and leave requests with secure APIs.  
 
 MAKE SURE TO READ SETUP INSTRUCTIONS 👇
@@ -67,7 +67,7 @@ Here’s a quick reference of all available endpoints:
 - **Python 3.10+**
 - **Django 4.x**
 - **Django REST Framework**
-- **SimpleJWT (Authentication)**
+- **Token Authentication**
 - **SQLite (default, can upgrade to PostgreSQL/MySQL)**
 
 ---
